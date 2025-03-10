@@ -7,19 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     private var counter: Int = 0
 
-    @IBOutlet weak var CounterValueLabel: UILabel!
+    @IBOutlet private weak var CounterValueLabel: UILabel!
     
-    @IBOutlet weak var IncreaseButton: UIButton!
+    @IBOutlet private weak var IncreaseButton: UIButton!
     
-    @IBOutlet weak var DecreseButton: UIButton!
+    @IBOutlet private weak var DecreseButton: UIButton!
     
-    @IBOutlet weak var RefreshButton: UIButton!
+    @IBOutlet private weak var RefreshButton: UIButton!
     
-    @IBOutlet weak var HistoryTextView: UITextView!
+    @IBOutlet private weak var HistoryTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         HistoryTextView.isScrollEnabled = true
     }
     
-    func convertToBeautifulDate() -> String {
+    private func convertToBeautifulDate() -> String {
         let dateFormatter = DateFormatter()
                 
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         return formattedDate
     }
  
-    @IBAction func IncreaseCounterForOne(_ sender: Any) {
+    @IBAction private func IncreaseCounterForOne(_ sender: Any) {
         
         counter += 1
         var currentDateTime = convertToBeautifulDate()
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         print("Counter increased")
     }
     
-    @IBAction func DecreaseCounterForOne(_ sender: Any) {
+    @IBAction private func DecreaseCounterForOne(_ sender: Any) {
         
         if(counter > 0){
             counter -= 1
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
             print("Counter is 0")
         }
     }
-    @IBAction func RefreshCounterToZero(_ sender: Any) {
+    @IBAction private func RefreshCounterToZero(_ sender: Any) {
         
         counter = 0
         var currentDateTime = convertToBeautifulDate()
